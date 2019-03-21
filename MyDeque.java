@@ -71,14 +71,24 @@ public class MyDeque<E> {
   public E removeFirst(){
     E og = data[start];
     data[start] = null;
-    start++;
+    if (start == data.length - 1) {
+      start = 0;
+    }
+    else {
+      start++;
+    }
     size--;
     return og;
   }
   public E removeLast(){
     E og = data[end];
     data[end] = null;
-    end--;
+    if (end == 0) {
+      end = data.length - 1;
+    }
+    else {
+      end--;
+    }
     size--;
     return og;
   }
@@ -121,13 +131,16 @@ public class MyDeque<E> {
     test.addLast(12);
     test.addFirst(17);
     test.addLast(7);
-    test.addLast(7);
-    test.addLast(7);
-    test.addLast(7);
-    test.addLast(7);
-    test.addLast(32425);
-    test.addLast(32425);
+
+//    test.addLast(32425);
+//    test.addLast(32425);
     test.removeLast();
+    test.addFirst(17);
+    test.addFirst(17);
+    test.addFirst(17);
+    test.addFirst(17);
+    test.addFirst(17);
+    test.removeFirst();
     System.out.println(test.start);
     System.out.println(test.end);
     System.out.println(test);
