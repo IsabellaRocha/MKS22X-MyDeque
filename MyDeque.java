@@ -21,7 +21,13 @@ public class MyDeque<E> {
   public int size(){
     return size;
   }
-  public String toString(){ }
+  public String toString(){
+    String output = "{";
+    for (int idx = 0; idx < data.length; idx++) {
+      output += data[idx] + " ";
+    }
+    return output;
+  }
   public void addFirst(E element){
     if (start == 0) {
       start = data.length;
