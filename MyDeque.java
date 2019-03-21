@@ -40,8 +40,22 @@ public class MyDeque<E> {
     }
     data[end] = element;
   }
-  public E removeFirst(){ }
-  public E removeLast(){ }
-  public E getFirst(){ }
-  public E getLast(){ }
+  public E removeFirst(){
+    E og = data[start];
+    data[start] = null;
+    start++;
+    return og;
+  }
+  public E removeLast(){
+    E og = data[end];
+    data[end] = null;
+    end--;
+    return og;
+  }
+  public E getFirst(){
+    return data[start];
+  }
+  public E getLast(){
+    return data[end];
+  }
 }
