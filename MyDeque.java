@@ -77,6 +77,14 @@ public class MyDeque<E> {
   public E getLast(){
     return data[end];
   }
+  public String toStringDebug() {
+    String output = "{";
+    for(int idx = 0; idx < data.length; idx++) {
+      output += data[idx] + " ";
+    }
+    output += "}";
+    return output;
+  }
   public static void main(String[] args) {
     MyDeque test = new MyDeque();
     test.addLast(12);
@@ -84,6 +92,8 @@ public class MyDeque<E> {
     test.addLast(12);
     test.addLast(12);
     test.addFirst(17);
+    test.addLast(7);
     System.out.println(test);
+    System.out.println(test.toStringDebug());
   }
 }
