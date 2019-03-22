@@ -1,7 +1,7 @@
 import java.util.*;
 public class MyDeque<E> {
   private E[] data;
-  public int size, start, end, check;
+  private int size, start, end, check;
   public MyDeque(){
     @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[10];
@@ -76,7 +76,7 @@ public class MyDeque<E> {
     data[end] = element;
   }
   public E removeFirst(){
-    if (size == 0 && check == 0) {
+    if (size == 0) {
       throw new NoSuchElementException();
     }
     E og = data[start];
@@ -91,7 +91,7 @@ public class MyDeque<E> {
     return og;
   }
   public E removeLast(){
-    if (size == 0 && check == 0) {
+    if (size == 0) {
       throw new NoSuchElementException();
     }
     E og = data[end];
@@ -133,36 +133,5 @@ public class MyDeque<E> {
     start = newData.length / 2;
     end = size + newData.length / 2 - 1;
     data = newData;
-  }
-  public String toStringDebug() {
-    String output = "{";
-    for(int idx = 0; idx < data.length; idx++) {
-      output += data[idx] + " ";
-    }
-    output += "}";
-    return output;
-  }
-  public static void main(String[] args) {
-    MyDeque test = new MyDeque();
-    test.addLast(12);
-    test.addLast(12);
-    test.addLast(12);
-    test.addLast(12);
-    test.addFirst(17);
-    test.addLast(7);
-
-//    test.addLast(32425);
-//    test.addLast(32425);
-    test.removeLast();
-    test.addFirst(17);
-    test.addFirst(17);
-    test.addFirst(17);
-    test.addFirst(17);
-    test.addFirst(17);
-    test.removeFirst();
-    System.out.println(test.start);
-    System.out.println(test.end);
-    System.out.println(test);
-    System.out.println(test.toStringDebug());
   }
 }
