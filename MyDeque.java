@@ -45,13 +45,9 @@ public class MyDeque<E> {
     if (element == null) {
       throw new NullPointerException();
     }
-    if (size >= data.length) {
-      resize();
-    }
-    if (start == 0) {
-      start = data.length - 1;
-    }
-    else if (check != 0){
+    if (size >= data.length) resize();
+    if (start == 0) start = data.length - 1;
+    else if (check != 0) {
       start--;
     }
     check = 1;
@@ -62,12 +58,8 @@ public class MyDeque<E> {
     if (element == null) {
       throw new NullPointerException();
     }
-    if (size >= data.length) {
-      resize();
-    }
-    if (end == data.length - 1) {
-      end = 0;
-    }
+    if (size >= data.length) resize();
+    if (end == data.length - 1) end = 0;
     else if (check != 0){
       end++;
     }
@@ -81,12 +73,8 @@ public class MyDeque<E> {
     }
     E og = data[start];
     data[start] = null;
-    if (start == data.length - 1) {
-      start = 0;
-    }
-    else {
-      start++;
-    }
+    if (start == data.length - 1) start = 0;
+    else start++;
     size--;
     return og;
   }
@@ -96,12 +84,8 @@ public class MyDeque<E> {
     }
     E og = data[end];
     data[end] = null;
-    if (end == 0) {
-      end = data.length - 1;
-    }
-    else {
-      end--;
-    }
+    if (end == 0) end = data.length - 1;
+    else end--;
     size--;
     return og;
   }
