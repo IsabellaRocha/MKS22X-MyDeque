@@ -12,7 +12,18 @@ public class Calculator {
     MyDeque eval = new MyDeque();
     String[] str = s.split(" ");
     for (int idx = 0; idx < str.length; idx++) {
-      if (str[idx])
+      if (isNumber(str[idx])) {
+        double add = Double.parseDouble(str[idx]);
+        eval.addLast(add);
+      }
+      else {
+        if (str[idx].equals("+")) {
+          double add = eval.getLast();
+          eval.removeLast();
+          add += eval.getLast();
+          eval.addLast(add);
+        }
+      }
     }
   }
 }
