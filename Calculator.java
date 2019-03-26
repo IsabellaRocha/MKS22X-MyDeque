@@ -18,38 +18,28 @@ public class Calculator {
       }
       else {
         if (str[idx].equals("+")) {
-          Double add = eval.getLast();
-          eval.removeLast();
-          add += eval.getLast();
-          eval.removeLast();
+          Double add = eval.removeLast();
+          add += eval.removeLast();
           eval.addLast(add);
         }
         if (str[idx].equals("*")) {
-          Double multiply = eval.getLast();
-          eval.removeLast();
-          multiply *= eval.getLast();
-          eval.removeLast();
+          Double multiply = eval.removeLast();
+          multiply *= eval.removeLast();
           eval.addLast(multiply);
         }
         if (str[idx].equals("-")) {
-          Double temp = eval.getLast();
-          eval.removeLast();
-          Double subtract = eval.getLast() - temp;
-          eval.removeLast();
+          Double temp = eval.removeLast();
+          Double subtract = eval.removeLast() - temp;
           eval.addLast(subtract);
         }
         if (str[idx].equals("/")) {
-          Double temp = eval.getLast();
-          eval.removeLast();
-          Double divide = eval.getLast() / temp;
-          eval.removeLast();
+          Double temp = eval.removeLast();
+          Double divide = eval.removeLast() / temp;
           eval.addLast(divide);
         }
         if (str[idx].equals("%")) {
-          Double temp = eval.getLast();
-          eval.removeLast();
-          Double mod = eval.getLast() % temp;
-          eval.removeLast();
+          Double temp = eval.removeLast();
+          Double mod = eval.removeLast() % temp;
           eval.addLast(mod);
         }
       }
