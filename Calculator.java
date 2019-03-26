@@ -9,21 +9,44 @@ public class Calculator {
     }
   } // Looked on stack overflow for ideas on how to tell if a string is a number
   public static double eval(String s){
-    MyDeque eval = new MyDeque();
+    MyDeque<Double> eval = new MyDeque();
     String[] str = s.split(" ");
     for (int idx = 0; idx < str.length; idx++) {
       if (isNumber(str[idx])) {
-        double add = Double.parseDouble(str[idx]);
+        Double add = Double.parseDouble(str[idx]);
         eval.addLast(add);
       }
       else {
         if (str[idx].equals("+")) {
-          double add = eval.getLast();
+          Double add = eval.getLast();
           eval.removeLast();
           add += eval.getLast();
+          eval.removeLast();
           eval.addLast(add);
+        }
+        if (str[idx].equals("*")) {
+          Double multiply = eval.getLast();
+          eval.removeLast();
+          multiply *= eval.getLast();
+          eval.removeLast();
+          eval.addLast(multiply);
+        }
+        if (str[idx].equals("-")) {
+          Double temp = eval.getLast();
+          eval.removeLast();
+          Double subtract = eval.getLast() - temp;
+          eval.removeLast();
+          eval.addLast(subtract);
+        }
+        if (str[idx].equals("/")) {
+          Double temp = eval.getLast();
+          eval.removeLast();
+          Double divide = eval.getLast() / temp;
+          eval.removeLast();
+          eval.addLast(divide);
         }
       }
     }
+    return eval.getLast();
   }
 }
