@@ -45,6 +45,13 @@ public class Calculator {
           eval.removeLast();
           eval.addLast(divide);
         }
+        if (str[idx].equals("%")) {
+          Double temp = eval.getLast();
+          eval.removeLast();
+          Double mod = eval.getLast() % temp;
+          eval.removeLast();
+          eval.addLast(mod);
+        }
       }
     }
     return eval.getLast();
