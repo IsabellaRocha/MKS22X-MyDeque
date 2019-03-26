@@ -17,30 +17,22 @@ public class Calculator {
         eval.addLast(add);
       }
       else {
+        Double x = eval.removeLast();
+        Double y = eval.removeLast();
         if (str[idx].equals("+")) {
-          Double add = eval.removeLast();
-          add += eval.removeLast();
-          eval.addLast(add);
+          eval.addLast(x + y);
         }
         if (str[idx].equals("*")) {
-          Double multiply = eval.removeLast();
-          multiply *= eval.removeLast();
-          eval.addLast(multiply);
+          eval.addLast(x * y);
         }
         if (str[idx].equals("-")) {
-          Double temp = eval.removeLast();
-          Double subtract = eval.removeLast() - temp;
-          eval.addLast(subtract);
+          eval.addLast(y - x);
         }
         if (str[idx].equals("/")) {
-          Double temp = eval.removeLast();
-          Double divide = eval.removeLast() / temp;
-          eval.addLast(divide);
+          eval.addLast(y / x);
         }
         if (str[idx].equals("%")) {
-          Double temp = eval.removeLast();
-          Double mod = eval.removeLast() % temp;
-          eval.addLast(mod);
+          eval.addLast(y % x);
         }
       }
     }
